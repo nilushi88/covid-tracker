@@ -43,6 +43,10 @@ public class PatientService {
 		patient.setLastName(updatedPatient.getLastName());
 		patient.setDob(updatedPatient.getDob());
 		patient.setNic(updatedPatient.getNic());
+		patient.setGender(updatedPatient.getGender());
+		patient.setAddress(updatedPatient.getAddress());
+		patient.setDistrict(updatedPatient.getDistrict());
+		patient.setMedicalInstitute(updatedPatient.getMedicalInstitute());
 		
 		if(updatedPatient.getPatientStatus() != patient.getPatientStatus()) {
 			updateHistory(patient);

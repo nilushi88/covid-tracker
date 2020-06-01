@@ -19,6 +19,13 @@ public class Patient {
 	private Date dob;
 	private Gender gender;
 	private PatientStatus patientStatus;
+	private String address;
+	
+	@ManyToOne
+	private District district;
+	
+	@ManyToOne
+	private MedicalInstitute medicalInstitute;
 	
 	public enum Gender{
 		MALE, FEMALE	
@@ -45,7 +52,7 @@ public class Patient {
 		this.id = id;
 	}
 	
-	@Column(name = "first_name", nullable = false)
+	@Column(name = "first_name")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -54,7 +61,7 @@ public class Patient {
 		this.firstName = firstName;
 	}
 	
-	@Column(name = "last_name", nullable = false)
+	@Column(name = "last_name")
 	public String getLastName() {
 		return lastName;
 	}
@@ -63,7 +70,6 @@ public class Patient {
 		this.lastName = lastName;
 	}
 	
-	@Column(name = "nic")
 	public String getNic() {
 		return nic;
 	}
@@ -72,7 +78,6 @@ public class Patient {
 		this.nic = nic;
 	}
 	
-	@Column(name = "dob", nullable = false)
 	public Date getDob() {
 		return dob;
 	}
@@ -81,7 +86,6 @@ public class Patient {
 		this.dob = dob;
 	}
 	
-	@Column(name = "gender", nullable = false)
 	public Gender getGender() {
 		return gender;
 	}
@@ -90,12 +94,37 @@ public class Patient {
 		this.gender = gender;
 	}
 
-	@Column(name = "patient_status", nullable = false)
+	@Column(name = "patient_status")
 	public PatientStatus getPatientStatus() {
 		return patientStatus;
 	}
 
 	public void setPatientStatus(PatientStatus patientStatus) {
 		this.patientStatus = patientStatus;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public District getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(District district) {
+		this.district = district;
+	}
+
+	@Column(name="medical_institute")
+	public MedicalInstitute getMedicalInstitute() {
+		return medicalInstitute;
+	}
+
+	public void setMedicalInstitute(MedicalInstitute medicalInstitute) {
+		this.medicalInstitute = medicalInstitute;
 	}	
 }
