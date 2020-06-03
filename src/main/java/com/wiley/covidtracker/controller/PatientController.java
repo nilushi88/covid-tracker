@@ -11,6 +11,7 @@ import com.wiley.covidtracker.exception.ResourceNotFound;
 import com.wiley.covidtracker.model.Patient;
 import com.wiley.covidtracker.service.PatientService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class PatientController {
 

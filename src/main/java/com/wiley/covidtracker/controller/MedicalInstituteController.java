@@ -14,6 +14,7 @@ import com.wiley.covidtracker.service.MedicalInstituteService;
 import com.wiley.covidtracker.service.PatientService;
 
 @RestController
+@RequestMapping("/api")
 public class MedicalInstituteController {
 
 	@Autowired
