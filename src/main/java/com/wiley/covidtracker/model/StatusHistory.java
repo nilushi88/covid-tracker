@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "status_history")
@@ -17,6 +18,7 @@ public class StatusHistory {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id; 
+	
 	private Date date;
 	private PatientStatus status;
 	

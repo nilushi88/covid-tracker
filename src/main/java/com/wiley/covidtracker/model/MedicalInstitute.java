@@ -6,18 +6,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "medical_institute")
 public class MedicalInstitute {
 	
 	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id; 
+	
+	@NotBlank(message = "Name is mandatory")
 	private String name;
 	private String address;
+	
 	@ManyToOne
 	private District district;
+	
 	private MedicalInstituteType type;
 	
 	public enum MedicalInstituteType{

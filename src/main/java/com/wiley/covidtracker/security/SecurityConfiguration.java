@@ -55,6 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/users/**").hasAnyAuthority("SUPER_ADMIN")
 			.antMatchers("/api/medicalInstitutes/**").hasAnyAuthority("SUPER_ADMIN")
 			.antMatchers("/api/patients").hasAnyAuthority("ADMIN","SUPER_ADMIN")
+			.antMatchers("/api/mi/**/patients").hasAnyAuthority("ADMIN","SUPER_ADMIN")
 			.antMatchers("/api/auth/**").permitAll()
 			.anyRequest().authenticated();
 

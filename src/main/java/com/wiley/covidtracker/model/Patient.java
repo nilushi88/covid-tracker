@@ -3,6 +3,7 @@ package com.wiley.covidtracker.model;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import com.wiley.covidtracker.model.StatusHistory.PatientStatus;
 
@@ -13,7 +14,9 @@ public class Patient {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id; 
+	@NotBlank(message = "First Name is mandatory")
 	private String firstName;
+	@NotBlank(message = "Last Name is mandatory")
 	private String lastName; 
 	private String nic;
 	private Date dob;

@@ -2,17 +2,22 @@ package com.wiley.covidtracker.model.response;
 
 import java.util.List;
 
+import com.wiley.covidtracker.model.MedicalInstitute;
+
 public class JwtResponse {
 
 	private String token;
 	private String type = "Bearer";
 	private String username;
 	private List<String> roles;
+	
+	private MedicalInstitute medicalInstitute;
 
-	public JwtResponse(String accessToken, String username, List<String> roles) {
+	public JwtResponse(String accessToken, String username, List<String> roles, MedicalInstitute medicalInstitute) {
 		this.token = accessToken;
 		this.username = username;
 		this.roles = roles;
+		this.medicalInstitute = medicalInstitute;
 	}
 
 	public String getToken() {
@@ -45,5 +50,13 @@ public class JwtResponse {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+
+	public MedicalInstitute getMedicalInstitute() {
+		return medicalInstitute;
+	}
+
+	public void setMedicalInstitute(MedicalInstitute medicalInstitute) {
+		this.medicalInstitute = medicalInstitute;
 	}
 }

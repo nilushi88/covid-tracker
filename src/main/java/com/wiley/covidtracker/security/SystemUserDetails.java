@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.wiley.covidtracker.model.MedicalInstitute;
+import com.wiley.covidtracker.model.MedicalStaff;
 import com.wiley.covidtracker.model.User;
 
 public class SystemUserDetails implements UserDetails{
@@ -16,6 +18,7 @@ public class SystemUserDetails implements UserDetails{
 	private String password;
 	private boolean active; 
 	private List<GrantedAuthority> authorities;
+	private MedicalInstitute medicalInstitute;
 	
 	public SystemUserDetails(User user) {
 		this.userName = user.getUserName();
@@ -24,6 +27,7 @@ public class SystemUserDetails implements UserDetails{
 		this.authorities = Arrays.stream(user.getRoles().split(","))
 									.map(SimpleGrantedAuthority::new)
 									.collect(Collectors.toList());
+		this.medicalInstitute = user instanceof MedicalStaff ? ((MedicalStaff)user).getMedicalInstitute() : null;
 	}
 	
 	public SystemUserDetails() {
@@ -63,5 +67,9 @@ public class SystemUserDetails implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return active;
+	}
+
+	public MedicalInstitute getMedicalInstitute() {
+		return medicalInstitute;
 	}
 }

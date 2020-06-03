@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wiley.covidtracker.exception.ResourceNotFound;
+import com.wiley.covidtracker.model.MedicalInstitute;
 import com.wiley.covidtracker.model.Patient;
 import com.wiley.covidtracker.model.StatusHistory;
+import com.wiley.covidtracker.repository.MedicalInstituteRepository;
 import com.wiley.covidtracker.repository.PatientRepository;
 import com.wiley.covidtracker.repository.StatusHistoryRepository;
 
@@ -21,8 +23,16 @@ public class PatientService {
 	@Autowired
 	private StatusHistoryRepository statusHistoryRepository;
 	
+	@Autowired
+	private MedicalInstituteService miService;
+	
 	public List<Patient> getAllPatients() {
 		return patientRepository.findAll();	
+	}
+	
+	public List<Patient> getAllMedicalInstitutePatients(long medicalInstituteID) throws ResourceNotFound {
+		MedicalInstitute medicalInstitute = miService.getMedicalInstitute(medicalInstituteID);
+		return patientRepository.findByMedicalInstitute(medicalInstitute);	
 	}
 	
 	public Patient getPatient(long id) throws ResourceNotFound {
