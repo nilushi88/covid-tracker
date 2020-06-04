@@ -35,4 +35,11 @@ INSERT INTO system_user (id, user_name, password, active, roles, user_type, medi
   	(3, 'admin_durdans', '$2a$10$DPXBa21gtCZuwJJI.R9/m.2gONVeqIQs82PBMNuSpbUCOA3IPCNES','Y', 'ADMIN', 1, 2),
   	(4, 'user', '$2a$10$DPXBa21gtCZuwJJI.R9/m.2gONVeqIQs82PBMNuSpbUCOA3IPCNES', 'Y', 'USER', 0, null);
 
+INSERT INTO patient (id, address, dob, first_name, last_name, gender, nic, patient_status, district_id, medical_institute_id) VALUES
+	(1, '26 Sir Marcus Fernando Mawatha', '1988-12-08','David', 'Barton', 0, '887456378v', 0, 5, 1),
+	(2, '10 Flower Road', '1990-02-08','John', 'Grisham', 0, '907456378v', 1, 5, 1),
+	(3, '400 McCallum Rd', '1983-02-08','Anna', 'Jarvis', 1, '8307456378v', 3, 5, 1),
+	(4, '25 Gregorys Rd', '1993-02-08','Michelle', 'Fernando', 1, '9307456378v', 0, 5, 2),
+	(5, '12 McCallum Rd', '1990-12-18','Scott', 'Jarvis', 0, '9007456378v', 2, 5, 2);
+
 
